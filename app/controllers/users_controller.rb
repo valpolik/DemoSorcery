@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :activate]
 
   def new
     @user = User.new
@@ -13,8 +13,19 @@ class UsersController < ApplicationController
       flash[:success] = 'Welcome!'
       redirect_to root_path
     else
-      p @user.errors.messages
+      flash[:warning] = "Error in registration: #{p(@user.errors.messages)}"
       render 'new'
+    end
+  end
+
+  def activate
+    if @user = User.load_from_activation_token(params[:id])
+      @user.activate!
+      flash[:success] = 'User was successfully activated.'
+      redirect_to log_in_path
+    else
+      flash[:warning] = 'Cannot activate this user.'
+      redirect_to root_path
     end
   end
 

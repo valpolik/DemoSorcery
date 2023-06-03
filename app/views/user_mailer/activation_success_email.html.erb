@@ -1,0 +1,22 @@
+<% if false %>
+
+  <h1>User#activation_success_email</h1>
+
+  <p>
+    <%= @greeting %>, find me in app/views/user_mailer/activation_success_email.html.erb
+  </p>
+
+<% end %>
+
+
+
+
+
+
+<p>Congratulations, <%= @user.name %>!</p>
+
+<p>You have successfully activated your account.</p>
+
+<p>You may now proceed to <%= link_to 'log in page', log_in_url %>.</p>
+
+<p>Thanks for joining and have a great day!</p>

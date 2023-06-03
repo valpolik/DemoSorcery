@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get '/secret', to: 'pages#index', as: :secret
   root to: 'pages#index'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    member do
+      get :activate
+    end
+  end
   get '/sign_up', to: 'users#new', as: :sign_up
 
   resources :sessions, only: [:new, :create, :destroy]
