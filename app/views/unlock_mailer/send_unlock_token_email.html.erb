@@ -1,0 +1,5 @@
+<p>Hello, <%= @user.name %>!</p>
+
+<p>Your account is locked. Too many attempts to login. To login to the site, just see unlock token <%= link_to('link', "http://127.0.0.1:3000/users/#{@user.unlock_token}/unlock") %>.</p>
+
+<p>Thanks for joining and have a great day!</p>

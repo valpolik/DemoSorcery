@@ -491,6 +491,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `50`
     #
     # user.consecutive_login_retries_amount_limit =
+    user.consecutive_login_retries_amount_limit = 5
 
     # How long the user should be banned, in seconds. 0 for permanent.
     # Default: `60 * 60`
@@ -518,6 +519,7 @@ Rails.application.config.sorcery.configure do |config|
     # Default: `nil`
     #
     # user.unlock_token_mailer =
+    user.unlock_token_mailer = UnlockMailer
 
     # -- activity logging --
     # Last login attribute name.

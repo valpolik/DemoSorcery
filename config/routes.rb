@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
     member do
       get :activate
+      get :unlock
     end
   end
   get '/sign_up', to: 'users#new', as: :sign_up

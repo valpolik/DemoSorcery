@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :activate]
+  skip_before_action :require_login, only: [:new, :create, :activate, :unlock]
 
   def new
     @user = User.new
@@ -25,6 +25,17 @@ class UsersController < ApplicationController
       redirect_to log_in_path
     else
       flash[:warning] = 'Cannot activate this user.'
+      redirect_to root_path
+    end
+  end
+
+  def unlock
+    if @user = User.load_from_unlock_token(params[:id])
+      @user.login_unlock!
+      flash[:success] = 'Your account was unlocked!'
+      redirect_to log_in_path
+    else
+      flash[:warning] = 'Cannot unlock this user.'
       redirect_to root_path
     end
   end
