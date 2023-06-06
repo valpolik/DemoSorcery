@@ -24,4 +24,4 @@ Things you may want to cover:
 * ...
 
 
-This is demonstration of user authentication with gem Sorcery. Used submodules: remember_me, user_activation, brute_force_protection, activity_logging, reset_password.
+This is demonstration of user authentication with gem Sorcery. Used submodules: remember_me, user_activation, brute_force_protection, activity_logging, reset_password. Emails are sent in background task using gem DelayedJob.
