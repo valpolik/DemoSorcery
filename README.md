@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+This is demonstration of user authentication with gem Sorcery. Used submodules: remember_me, user_activation, brute_force_protection, activity_logging, reset_password.
