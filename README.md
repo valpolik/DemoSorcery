@@ -31,8 +31,14 @@ This is demonstration of user authentication with gem Sorcery. Used submodules: 
 * ruby 2.7.8
 * bundler 2.1.4
 
-# Setup:
+# Launch:
+* git clone git@github.com:valpolik/Magical.git
+* cd Magical
 * bundle install
 * bundle exec rails db:migrate
-* Terminal 1: bundle exec rails jobs:work
-* Terminal 2: bundle exec rails server
+
+Terminal 1:
+* bundle exec rails jobs:work
+
+Terminal 2:
+* bundle exec rails server
