@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_03_163105) do
+ActiveRecord::Schema.define(version: 2023_06_04_101250) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -42,8 +42,13 @@ ActiveRecord::Schema.define(version: 2023_06_03_163105) do
     t.integer "failed_logins_count", default: 0
     t.datetime "lock_expires_at"
     t.string "unlock_token"
+    t.datetime "last_login_at"
+    t.datetime "last_logout_at"
+    t.datetime "last_activity_at"
+    t.string "last_login_from_ip_address"
     t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at"
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["unlock_token"], name: "index_users_on_unlock_token"
   end

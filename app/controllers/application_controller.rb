@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
     # p session[:user_id]
     # Rails.logger.debug(cookies.map { |cookie| cookie.join('=') }.join("\n"))
   end
+
+  def current_users
+    User.current_users
+  end
+  
+  helper_method :current_users
 end
